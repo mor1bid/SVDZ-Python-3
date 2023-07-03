@@ -105,6 +105,8 @@ for line in list(message):
 print(str(tower))
 
 # 8
+
+print("\n8. Вещи")
 team = {
     "Дюк": ("Дробовик", "Пистолет", "Голо-копия"),
     "Флинн": ("Пистолет", "Дробовик", "Плазмаган", "Пулемёт", "BFG9000"),
@@ -112,3 +114,18 @@ team = {
     "Гордон": ("Очки", "Лом", "Пистолет"),
     "Сэм": ("Дробовик", "Пулемёт", "Плазмаган")
 }
+
+for it in team:
+    print(team[it])
+
+elite = list()
+for i in team:
+    for j in range(len(team[i])):
+        co = 0
+        for l in team:
+            for n in range(len(team[l])):
+                if team[i][j] in team[l][n]:
+                    co += 1
+        if co == 1:
+            elite.append(team[i][j])
+print("\nУникальные вещи\n:", elite)
