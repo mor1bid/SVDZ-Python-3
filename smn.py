@@ -106,7 +106,7 @@ print(str(tower))
 
 # 8
 
-print("\n8. Вещи")
+print("\n8. Вещи:")
 team = {
     "Дюк": ("Дробовик", "Пистолет", "Голо-копия"),
     "Флинн": ("Пистолет", "Дробовик", "Плазмаган", "Пулемёт", "BFG9000"),
@@ -129,3 +129,20 @@ for i in team:
         if co == 1:
             elite.append(team[i][j])
 print("\nУникальные вещи\n:", elite)
+
+fund = list()
+for i in team:
+    for j in range(len(team[i])):
+        co = 0
+        for l in team:
+            for n in range(len(team[l])):
+                if team[i][j] in team[l][n]:
+                    co += 1
+
+        if co == len(team) - 1:
+            lost = team[i][j]
+            for q in team:
+                if lost not in team[q]:
+                    poor = q
+            fund.append(lost)
+print("\nНедостающие вещи у\n:", poor, "-", set(fund))

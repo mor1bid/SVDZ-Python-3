@@ -68,16 +68,13 @@ backpack = float(input("Введите желаемый размер вмест�
 if backpack > 120.0:
     print('Рюкзаков такой вместимости не бывает.')
 else:
-    #handi = 0
     scales = 0
-    for handi in range(len(inventory)):
-        for item in range(len(inventory)):
-            if scales + inventory[item - handi] <= backpack:
-                scales += inventory[item - handi]
-                loot.append(item - handi)
-            else:
-                home.append(item - handi)
-        if len(home) == 0:
-            home.insert(0, "ничего!")
-        print("В ваш рюкзак мы смогли уместить\n:", loot,"\nОбщий вес составил: ", round(scales, 1), "/", backpack, " кг.\nОставшееся дома\n:", home)
-#print("В ваш рюкзак мы смогли уместить\n:", loot,"\nОбщий вес составил: ", round(scales, 1), "/", backpack, " кг.\nОставшееся дома\n:", home)
+    for item in inventory.keys():
+        if scales + inventory[item] <= backpack:
+            scales += inventory[item]
+            loot.append(item)
+        else:
+            home.append(item)
+if len(home) == 0:
+    home.insert(0, "ничего!")
+print("В ваш рюкзак мы смогли уместить\n:", loot,"\nОбщий вес составил: ", round(scales, 1), "/", backpack, " кг.\nОставшееся дома\n:", home)
